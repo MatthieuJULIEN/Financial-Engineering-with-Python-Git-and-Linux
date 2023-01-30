@@ -19,39 +19,39 @@ pwd
 
 4. Try to create a directory named test
 ``` 
-pwd
+mkdir test
 ```
 5. Go to the general home directory (should contain folders named after
 each user)
 ``` 
-ls
+cd /home
 ```
 6. Go to your home directory
 ``` 
-ls
+cd $HOME
 ```
 7. Go back to the general home directory (located "just above")
 ``` 
-ls
+cd ..
 ```
 8. Go again "just above", you should be back to the root directory
 ``` 
-ls
+cd ..
 ```
 9. Go directly to your home directory (named after you). It should be a
 very simple command, which take no name as parameter of the path
 ``` 
-ls
+cd ~
 ```
 10. Try to create a directory named test
 ``` 
-ls
+mkdir test
 ```
 11. Go into this new directory
 ``` 
-ls
+cd test
 ```
 12. Check your current location
 ``` 
-ls
+pwd
 ```
