@@ -89,7 +89,7 @@ mv [first_name]_[last_name].txt notes/
 ```
 8. Rename the text file by appending the current year [first_name]_[last_name]_[current_year].txt
 ``` 
-mv notes/[first_name][last_name].txt notes/[first_name][last_name]_[current_year].txt
+mv notes/[first_name]_[last_name].txt notes/[first_name]_[last_name]_[current_year].txt
 ```
 9. Make a copy of this folder, name it notes_2022
 ``` 
