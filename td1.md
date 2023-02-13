@@ -134,65 +134,52 @@ chmod +x script_1.sh
 1. Create a file credentials in the folder linux_ex_1
   (a) Write any kind of (fake) personal information within the file
 ```
-$ touch credentials.txt 
-$ echo "Je suis né en Novembre" > credentials.txt
+cd ~
+nano credentials.txt 
+echo "Je fais mon TD" 
+
 ```
 
   (b) Display the file content
 ```
-$ cat credentials.txt
+chmod +x credentials
+./credentials
 ```
   
   (c) Display the current permissions
 ```
-$ ls -lah credentials.txt
+$ ls -lah credentials
 ```
 
 2. Change the current permissions to : read only for all users
-
-Notes for myself
-The output of ls -la filename shows the permission. The first character indicates if it is a file (-), a directory (d) or a link (l)
-Then it is followed by r or w or x or a combinaison of those, it indicates the rights of the owner
-
-To change directory permissions for everyone, use “u” for users, “g” for group, “o” for others, and “ugo” or “a” (for all).
-
-There are three kinds of file permissions in Linux:
-  Read (r): Allows a user or group to view a file.
-  Write (w): Permits the user to write or modify a file or directory.
-  Execute (x): A user or grup with execute permissions can execute a file or view a directory.
-  
-For example : 
-  chmod ugo+rwx foldername to give read, write, and execute to everyone.
-  chmod a=r foldername to give only read permission for everyone.
-  ...
   
   (a) Display the new permissions
 ```
-$ chmod a=r credentials.txt
-$ ls -lah credentials.txt
+chmod a=r credentials
+ls -lah credentials
 ```
 
   (b) Modify and save the file
 ```
-$ echo "Modified file" > credentials.txt
+echo "Modify file" > credentials
 ```
 *Permission denied
   
   (c) Display the file content
 ```
-$ vim credentials.txt
+cat credentials
 ```
 
 3. Change the permissions back to read and write for all users  
   (a) Display the new permissions
 ```
-$ chmod ugo+rw credentials.txt
+chmod ugo+rw credentials.txt
 $ ls -la credentials.txt
 ```
   
   (b) Modify and save the file
 ```
-$ vi credentials.txt 
+vim credentials
 
 press i to access the insertion mode. 
 Write what you want
@@ -202,7 +189,7 @@ Write :wq + Enter to save and exit
 
   (c) Display the file content
 ```
-$ cat credentials.txt
+cat credentials
 ```
 
 On the same file :
@@ -210,22 +197,22 @@ On the same file :
 1. Add the execute permission to the owner
   (a) Display the new permissions
 ```
-$ chmod u+x credentials.txt
-$ ls -la
+chmod u+x credentials
+ls -la credentials
 ```
 
 2. Remove the read permission to other users
   (a) Display the new permissions
 ```
-$ chmod o-r credentials.txt
-$ ls -la
+chmod o-r credentials
+ls -la credentials
 ```
 
 3. Change the permissions to read, write and execute for all users
   (a) Display the new permissions
 ```
-$ chmod ugo=rwx credentials.txt
-$ ls -la
+chmod ugo=rwx credentials
+ls -la credentials
 ```
 
 ### Exercise 4:.2 Access root files
