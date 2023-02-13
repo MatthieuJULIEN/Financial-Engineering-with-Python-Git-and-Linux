@@ -77,7 +77,7 @@ cd linux_ex_1
 ```
 5. Create an empty text file named [first_name]_[last_name].txt (e.g. alexis_bogroff.txt)
 ``` 
-touch [first_name]_[last_name].txt
+touch Matthieu_Julien.txt
 ```
 6. Create a folder notes
 ``` 
@@ -85,11 +85,11 @@ mkdir notes
 ```
 7. Move your text file into this folder
 ``` 
-mv [first_name]_[last_name].txt notes/
+mv Matthieu_Julien.txt notes/
 ```
 8. Rename the text file by appending the current year [first_name]_[last_name]_[current_year].txt
 ``` 
-mv notes/[first_name]_[last_name].txt notes/[first_name]_[last_name]_[current_year].txt
+mv notes/Matthieu_Julien.txt notes/Matthieu_Julien_2023.txt
 ```
 9. Make a copy of this folder, name it notes_2022
 ``` 
@@ -97,30 +97,32 @@ cp -r notes notes_2022
 ```
 10. Delete the first folder (notes) using the verbose option
 ``` 
-rm -rv notes/
+rm -r notes/
 ```
 
 ## Exercice 3 : Create and run a script
 
 1. Create a script script_1.sh in the folder linux_ex_1
 ``` 
-touch script_1.sh
+nano script_1.sh
 ```
 2. In the script, write the commands that would output the following :
 Script running please wait ...
 Done.
 ``` 
-echo "echo 'Script running please wait ...'; echo 'Done.'" > script_1.sh
+echo "Script running please wait ..."
+echo "Done."
 ```
 3. Quit editing and save the script
 ``` 
-
+CTRL X + Y + Enter
 ```
 4. Display the content of the script (using a command, not from an editor)
 ``` 
-cat script_1.sh
+chmod +x script_1.sh
+./script_1.sh
 ```
 5. Run the script
 ``` 
-bash script_1.sh
+./script_1.sh
 ```
