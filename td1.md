@@ -219,56 +219,61 @@ ls -la credentials
 
 1. Go to the root folder
 ```
-$ cd /
+cd /
 ```
 
 2. Create a file in root user mode named .private_file  
   (a) Write some information in the file
 ```
-$ sudo -i
-$ touch .private_file
-$ echo "It is a private file" > .private_file
+sudo -i
+touch .private_file
+echo "private file" > .private_file
 ```
 
   (b) Display the file content
 ```
-$ cat .private_file
+cat .private_file
 ```
 
   (c) Display all the files in the folder including hidden files  
 ```
-$ ls -a
+ls -a
 ```
 
 3. Modify the file in normal user mode  
   (a) Write some new information in the file
+```
+echo "Modify private file" > .private_file
+```
+
   (b) Display the file content
-  
-*It is impossible to modify or display the file content in user mode. We also can not change the rights in user mode, we might have to do it in root mode.
+```
+cat .private_file
+```
 
 4. Modify the file in root user mode
   (a) Write some new information in the file
 ```
-echo "New line" >> .private_file
+echo "New info" >> .private_file
 ```
   (b) Display the file content
 ```
-$ cat .private_file
+cat .private_file
 ```  
 
 5. Change permissions to read, write and execute for all users
 ```
-$ cd ..
-$ chmod a=rwx root
+su matthieujulien
+chmod a=rwx root
 ```
   (a) Modify the file content in normal user mode
 ```
-$ echo "Hey" >> .private_file
+echo "Modify file" >> .private_file
 ```  
   
   (b) Display the file content
 ```
-$ cat private_file
+cat private_file
 ```
 
 ## Exercise 4:.3 Change a file owner  
@@ -279,37 +284,37 @@ $ cat private_file
 
 2. Set the new file owner as the current user  
 ```
-$ sudo -i
-$ cd /
-$ chown adrien root
+sudo -i
+cd /
+chown matthieujulien root
 ```  
 
 3. Change permissions of .private_file to read and write for all users, in normal user mode
 ```
-$ su adrien
-$ chmod a=rw root
+su matthieujulien
+chmod a=rw root
 ```
 
 ## Exercise 4:.4 Manage Packages (tools / functions)  
 
 1. Update your main package manager named apt  
 ```
-$ sudo apt update
+sudo apt update
 ```
 
 2. Upgrade apt
 ```
-$ sudo apt upgrade
+sudo apt upgrade
 ```
 
 3. Install the package cmatrix
 ```
-$ sudo apt-get install cmatrix
+sudo apt-get install cmatrix
 ```
 
 4. Launch cmatrix
 ```
-$ cmatrix
+cmatrix
 ```
 
 5. Quit cmatrix
@@ -319,17 +324,17 @@ CTRL + C
 
 6. Install the package tmux
 ```
-$ sudo apt-get install tmux
+sudo apt-get install tmux
 ```
 
 7. Launch tmux
 ```
-$ tmux
+tmux
 ```
 
 8. Say "Hello session 0" using bash in your current tmux session
 ```
-$ nano script_tmux0.sh
+nano script_tmux0.sh
 
 Ouverture du fichier bash :
 #!/bin/bash
@@ -338,13 +343,13 @@ echo "Hello session 0"
 
 Fermeture fichier
 
-$ chmod +x script_tmux0.sh
-$ ./script_tmux0.sh```
+chmod +x script_tmux0.sh
+./script_tmux0.sh```
 ```
 
 9. Launch cmatrix in your current tmux session
 ```
-$ cmatrix
+cmatrix
 ```
 
 10. Detach from the current tmux session (without stopping cmatrix)
@@ -354,12 +359,12 @@ CTRL + B    D
 
 11. Create a new tmux session
 ```
-$ tmux new -s MySes
+tmux new -s MySes
 ```
 
 12. Say "Hello session 1" using bash in your new tmux session
 ```
-$ nano script_tmux.sh
+nano script_tmux.sh
 
 Ouverture du fichier bash :
 #!/bin/bash
@@ -374,48 +379,48 @@ $ ./script_tmux.sh
 
 13. Detach from the current tmux session
 ```
-$ tmux detach
+tmux detach
 ```
 
 14. List all running sessions
 ```
-$ tmux ls
+tmux ls
 ```
 
 15. Attach again to session 0
 ```
-$ tmux attach -t 0
+tmux attach -t 0
 ```
 
 16. Detach again
 ```
-$ tmux detach 
+tmux detach 
 ```
 
 17. Attach again to session 1
 ```
-$ tmux attach -t MySes
+tmux attach -t MySes
 ```
 
 18. Detach again
 ```
-$ tmux detach
+tmux detach
 ```
 
 19. List all running sessions
 ```
-$ tmux ls
+tmux ls
 ```
 
 20. Kill all tmux sessions and quit tmux
 ```
-$ tmux kill-session -a
-$ tmux kill-server
+tmux kill-session -a
+tmux kill-server
 ```
 
 21. List all sessions
 ```
-$ tmux ls
+tmux ls
 ```
 No servers running  
 
@@ -423,40 +428,43 @@ No servers running
 
 1. Display the cmatrix help function  
 ```
-$ cmatrix --help
+cmatrix --help
 ```
 
 2. Launch cmatrix and make it display white characters (in place of the green)
 ```
-$ cmatrix -C white
+cmatrix -C white
 ```
 3. Re-launch cmatrix and slow down the speed of characters actualization
 ```
-$ cmatrix -u 10
+cmatrix -u 10
 ```
 
 4. Stop cmatrix
+```
 CTRL + C
+```
 
 5. Launch cmatrix with both :
 — A slow speed of characters actualization
 — Blue characters
 
 ```
-$ cmatrix -u 10 -C blue
+cmatrix -u 10 -C blue
 ```
 
 6. Display cmatrix manual (different from the help notice)
 ```
-$ man cmatrix
+man cmatrix
+:q to quit
 ```
 
 7. Display the tmux help function
 ```
-$ tmux --help
+tmux --help
 ```
 
 8. Display the tmux manual
 ```
-$ man tmux
+man tmux
 ```
