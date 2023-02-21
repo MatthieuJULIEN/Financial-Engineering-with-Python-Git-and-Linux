@@ -134,21 +134,18 @@ chmod +x script_1.sh
 1. Create a file credentials in the folder linux_ex_1
   (a) Write any kind of (fake) personal information within the file
 ```
-cd ~
-nano credentials.txt 
-echo "Je fais mon TD" 
+echo "Je fais mon TD" > credentials.txt
 
 ```
 
   (b) Display the file content
 ```
-chmod +x credentials
-./credentials
+cat credentials
 ```
   
   (c) Display the current permissions
 ```
-$ ls -lah credentials
+$ ls -l credentials
 ```
 
 2. Change the current permissions to : read only for all users
@@ -156,14 +153,13 @@ $ ls -lah credentials
   (a) Display the new permissions
 ```
 chmod a=r credentials
-ls -lah credentials
+ls -l credentials
 ```
 
   (b) Modify and save the file
 ```
-echo "Modify file" > credentials
+echo "Modify file" >> credentials
 ```
-*Permission denied
   
   (c) Display the file content
 ```
@@ -174,7 +170,7 @@ cat credentials
   (a) Display the new permissions
 ```
 chmod ugo+rw credentials.txt
-$ ls -la credentials.txt
+ls -l credentials.txt
 ```
   
   (b) Modify and save the file
