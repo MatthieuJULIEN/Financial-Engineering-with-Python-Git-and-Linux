@@ -26,15 +26,15 @@ curl https://en.wikipedia.org/wiki/List_of_cyberattacks > cyberattacks.txt
 ```
 2. Use grep to extract all the lines that contain the keyword "meta"
 ```
-grep 'meta' cyberattacks.txt
+cat cyberattacks.txt | grep 'meta' 
 ```
 3. Now only extract "meta" and the first following word. You might use grep options to enable the use of regex
 ```
-grep -oP 'meta \w+' cyberattacks.txt 
+cat cyberattacks.txt | grep -oP "meta\s\w+"
 ```
-4. Only extract the follwing word (but not the keyword "meta")
+4. Only extract the following word (but not the keyword "meta")
 ```
-grep -oP '(?<=meta )\w+' cyberattacks.txt 
+cat cyberattacks.txt | grep -oP '(?<=meta\s)\w+' 
 ```
 5. Let’s now try more interesting (yet complex) patterns. You might use vim to open the file and look for useful patterns.
 
@@ -57,6 +57,10 @@ cat cyberattacks.txt | grep -A1 'mw-content-text' | grep -v 'mw-content-text'
 6. Your turn
 
 — Extract the tab title <br>
+```
+cat cyberattacks.txt | grep -oP "(?<=<title>).*(?=</title>)"
+cat cyberattacks.txt | grep -oP "(?<=<title>).*(?=</title)" | grep -oP '.*(?= - Wikipedia)'
+```
 — Make a list of cyber attacks based on section titles<br>
 ```
 cat cyberattacks.txt | grep 'vector-toc-numb' | grep -oP '(?<=span>).*(?=</div)'
