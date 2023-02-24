@@ -128,6 +128,8 @@ chmod +x say_hello.sh
 ```
 crontab -e
 * * * * * ~/linux_ex_3/say_hello.sh
+sudo service cron start
+sudo service cron stop
 ```
 
 ## Exercise 4 : Hashing
