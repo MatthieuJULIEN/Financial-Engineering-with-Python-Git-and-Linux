@@ -185,7 +185,7 @@ Write :wq + Enter to save and exit
 
   (c) Display the file content
 ```
-cat credentials
+source credentials
 ```
 
 On the same file :
